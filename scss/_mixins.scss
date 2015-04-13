@@ -1,0 +1,27 @@
+/*
+
+File : mixins.scss
+Author: Mohamed Nasser
+For: SumUp
+Description: set sass mixins here.
+
+*/
+
+
+$break-small: 280px;
+$break-md: 480px;
+$break-tab-large: 800px;
+$break-large: 1024px;
+
+
+@mixin respond-to($media) {
+  @if $media == handhelds {
+    @media only screen and (min-width: $break-small) and (max-width: $break-md) { @content; }
+  }
+  @else if $media == medium {
+    @media only screen and (min-width: $break-md + 1) and (max-width: $break-tab-large) { @content; }
+  }
+  @else if $media == wide {
+    @media only screen and (min-width: $break-large) and (max-width: $break-large + 50) { @content; }
+  }
+}
